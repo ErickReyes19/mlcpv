@@ -1,0 +1,196 @@
+---
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { CheckCircle2, Leaf, TreePine, Flower, Sprout } from "lucide-react";
+import { Image } from "astro:assets";
+
+import heroImg from "./../../../public/images/professional-gardener-maintaining-beautiful-garden.jpg";
+import MainLayout from "@/layouts/MainLayout.astro";
+
+const subServices = [
+    {
+        title: "Diseño de Jardines",
+        description:
+            "Diseñamos y creamos jardines personalizados que se adaptan a su espacio y estilo de vida.",
+        icon: Flower,
+    },
+    {
+        title: "Mantenimiento Regular",
+        description:
+            "Servicio de mantenimiento periódico para mantener su jardín siempre hermoso y saludable.",
+        icon: Leaf,
+    },
+    {
+        title: "Poda y Control",
+        description:
+            "Poda profesional de árboles, arbustos y plantas para promover un crecimiento saludable.",
+        icon: TreePine,
+    },
+    {
+        title: "Sistemas de Riego",
+        description:
+            "Instalación y mantenimiento de sistemas de riego automático eficientes y económicos.",
+        icon: Sprout,
+    },
+    {
+        title: "Fertilización y Control de Plagas",
+        description:
+            "Programas de fertilización y control de plagas con productos ecológicos y seguros.",
+        icon: Leaf,
+    },
+    {
+        title: "Paisajismo Completo",
+        description:
+            "Transformamos su espacio exterior con diseños paisajísticos profesionales y creativos.",
+        icon: TreePine,
+    },
+];
+
+const features = [
+    "Jardineros profesionales capacitados",
+    "Plantas y materiales de calidad superior",
+    "Diseños personalizados y creativos",
+    "Productos ecológicos y sustentables",
+    "Planes de mantenimiento flexibles",
+    "Asesoramiento profesional gratuito",
+];
+---
+
+<MainLayout>
+    <div class="min-h-screen">
+        <!-- HERO -->
+        <section
+            class="relative bg-primary text-primary-foreground py-20 md:py-32"
+        >
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <Badge
+                            className="bg-accent text-accent-foreground w-fit"
+                        >
+                            Espacios Verdes y Hermosos
+                        </Badge>
+
+                        <h1 class="text-4xl md:text-6xl font-bold text-balance">
+                            Servicios de Jardinería
+                        </h1>
+
+                        <p
+                            class="text-lg md:text-xl text-primary-foreground/90 leading-relaxed"
+                        >
+                            Creamos y mantenemos espacios verdes que transforman
+                            su entorno. Cuidamos cada detalle de su jardín con
+                            pasión y experiencia.
+                        </p>
+
+                        <div class="flex gap-4 pt-4">
+                            <Button
+                                size="lg"
+                                className="bg-accent hover:bg-accent/90"
+                            >
+                                <a href="/#contacto">Solicitar Servicio</a>
+                            </Button>
+
+                            <Button
+                                size="lg"
+                                variant="outline"
+                                className="border-primary-foreground/20 bg-transparent hover:bg-primary-foreground/10"
+                            >
+                                <a href="/#servicios">Ver Más Servicios</a>
+                            </Button>
+                        </div>
+                    </div>
+
+                    <div
+                        class="relative h-100 md:h-125 rounded-lg overflow-hidden"
+                    >
+                        <Image
+                            src={heroImg}
+                            alt="Servicios de Jardinería Profesional"
+                            class="object-cover w-full h-full"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SUBSERVICIOS -->
+        <section class="py-20 bg-background">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Nuestros Servicios de Jardinería
+                    </h2>
+                    <p class="text-lg text-muted-foreground">
+                        Servicios completos de jardinería y paisajismo para
+                        transformar sus espacios exteriores en paraísos
+                        naturales.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {
+                        subServices.map((service) => {
+                            const Icon = service.icon;
+                            return (
+                                <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-accent/50">
+                                    <CardContent className="p-6">
+                                        <div class="mb-4 inline-flex p-3 rounded-lg bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                                            <Icon className="w-6 h-6" />
+                                        </div>
+
+                                        <h3 class="text-xl font-semibold mb-3">
+                                            {service.title}
+                                        </h3>
+
+                                        <p class="text-muted-foreground leading-relaxed">
+                                            {service.description}
+                                        </p>
+                                    </CardContent>
+                                </Card>
+                            );
+                        })
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="py-20 bg-secondary/30">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                            ¿Por Qué Elegir Nuestros Servicios?
+                        </h2>
+                        <p class="text-lg text-muted-foreground">
+                            Pasión por la naturaleza y compromiso con la belleza
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        {
+                            features.map((feature) => (
+                                <div class="flex items-start gap-3 p-4 bg-card rounded-lg border hover:border-accent/50 transition-colors">
+                                    <CheckCircle2 className="w-6 h-6 text-accent mt-1 shrink-0" />
+                                    <p class="text-lg font-medium">{feature}</p>
+                                </div>
+                            ))
+                        }
+                    </div>
+
+                    <div class="text-center mt-12">
+                        <Button
+                            size="lg"
+                            className="bg-accent hover:bg-accent/90"
+                        >
+                            <a href="/#contacto">Contactar Ahora</a>
+                        </Button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</MainLayout>

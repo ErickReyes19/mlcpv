@@ -1,0 +1,195 @@
+---
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { CheckCircle2, Wrench, Droplet, Shield, Clock } from "lucide-react";
+import { Image } from "astro:assets";
+
+import heroImg from "./../../../public/images/professional-plumber-installing-pipes-in-modern-ho.jpg";
+import MainLayout from "@/layouts/MainLayout.astro";
+
+const subServices = [
+    {
+        title: "Instalación de Tuberías",
+        description:
+            "Instalamos sistemas de tuberías nuevos con materiales de alta calidad para agua potable, drenaje y gas.",
+        icon: Wrench,
+    },
+    {
+        title: "Reparación de Fugas",
+        description:
+            "Detectamos y reparamos fugas de agua en tuberías, grifos, inodoros y sistemas de calefacción.",
+        icon: Droplet,
+    },
+    {
+        title: "Mantenimiento Preventivo",
+        description:
+            "Inspecciones regulares para prevenir problemas futuros y extender la vida útil de sus instalaciones.",
+        icon: Shield,
+    },
+    {
+        title: "Destapado de Drenajes",
+        description:
+            "Limpieza profesional de drenajes obstruidos utilizando equipos especializados y técnicas modernas.",
+        icon: Clock,
+    },
+    {
+        title: "Instalación de Sanitarios",
+        description:
+            "Instalamos y reemplazamos inodoros, lavabos, regaderas y accesorios de baño con garantía.",
+        icon: Wrench,
+    },
+    {
+        title: "Sistemas de Agua Caliente",
+        description:
+            "Instalación, reparación y mantenimiento de calentadores de agua y sistemas de distribución.",
+        icon: Droplet,
+    },
+];
+
+const features = [
+    "Técnicos certificados y con experiencia",
+    "Materiales de primera calidad",
+    "Garantía en todos nuestros trabajos",
+    "Respuesta rápida ante emergencias",
+    "Precios competitivos y transparentes",
+    "Servicio disponible 24/7",
+];
+---
+
+<MainLayout>
+    <div class="min-h-screen">
+        <!-- HERO -->
+        <section
+            class="relative bg-primary text-primary-foreground py-20 md:py-32"
+        >
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <Badge
+                            className="bg-accent text-accent-foreground w-fit"
+                        >
+                            Servicios Profesionales
+                        </Badge>
+
+                        <h1 class="text-4xl md:text-6xl font-bold text-balance">
+                            Servicios de Plomería
+                        </h1>
+
+                        <p
+                            class="text-lg md:text-xl text-primary-foreground/90 leading-relaxed"
+                        >
+                            Soluciones integrales de plomería para su hogar o
+                            negocio. Trabajamos con técnicos especializados y
+                            equipos de última generación.
+                        </p>
+
+                        <div class="flex gap-4 pt-4">
+                            <Button
+                                size="lg"
+                                className="bg-accent hover:bg-accent/90"
+                            >
+                                <a href="/#contacto">Solicitar Servicio</a>
+                            </Button>
+
+                            <Button
+                                size="lg"
+                                variant="outline"
+                                className="border-primary-foreground/20 bg-transparent hover:bg-primary-foreground/10"
+                            >
+                                <a href="/#servicios">Ver Más Servicios</a>
+                            </Button>
+                        </div>
+                    </div>
+
+                    <div
+                        class="relative h-100 md:h-125 rounded-lg overflow-hidden"
+                    >
+                        <Image
+                            src={heroImg}
+                            alt="Servicios de Plomería Profesional"
+                            class="object-cover w-full h-full"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SUBSERVICIOS -->
+        <section class="py-20 bg-background">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Nuestros Servicios de Plomería
+                    </h2>
+                    <p class="text-lg text-muted-foreground">
+                        Instalaciones, mantenimiento y reparaciones de
+                        emergencia con la más alta calidad y rapidez.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {
+                        subServices.map((service) => {
+                            const Icon = service.icon;
+                            return (
+                                <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-accent/50">
+                                    <CardContent className="p-6">
+                                        <div class="mb-4 inline-flex p-3 rounded-lg bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                                            <Icon className="w-6 h-6" />
+                                        </div>
+
+                                        <h3 class="text-xl font-semibold mb-3">
+                                            {service.title}
+                                        </h3>
+
+                                        <p class="text-muted-foreground leading-relaxed">
+                                            {service.description}
+                                        </p>
+                                    </CardContent>
+                                </Card>
+                            );
+                        })
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="py-20 bg-secondary/30">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                            ¿Por Qué Elegir Nuestros Servicios?
+                        </h2>
+                        <p class="text-lg text-muted-foreground">
+                            Calidad, confianza y profesionalismo en cada trabajo
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        {
+                            features.map((feature) => (
+                                <div class="flex items-start gap-3 p-4 bg-card rounded-lg border hover:border-accent/50 transition-colors">
+                                    <CheckCircle2 className="w-6 h-6 text-accent mt-1 shrink-0" />
+                                    <p class="text-lg font-medium">{feature}</p>
+                                </div>
+                            ))
+                        }
+                    </div>
+
+                    <div class="text-center mt-12">
+                        <Button
+                            size="lg"
+                            className="bg-accent hover:bg-accent/90"
+                        >
+                            <a href="/#contacto">Contactar Ahora</a>
+                        </Button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</MainLayout>

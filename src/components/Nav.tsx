@@ -21,8 +21,9 @@ import {
 const services = [
   { name: "Plometia", href: "/servicios/plomeria" },
   { name: "Refrigeración", href: "/servicios/refrigeracion" },
-  { name: "Carpintería", href: "/servicios/Carpinteria" },
-  { name: "Jardinería", href: "/servicios/Jardineria" },
+  { name: "Carpintería", href: "/servicios/carpinteria" },
+  { name: "Electricidad", href: "/servicios/electricidad" },
+  { name: "Jardinería", href: "/servicios/jardineria" },
 ];
 
 const navItems = [

@@ -1,0 +1,201 @@
+---
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+    CheckCircle2,
+    Snowflake,
+    Wind,
+    ThermometerSnowflake,
+    Settings,
+} from "lucide-react";
+import { Image } from "astro:assets";
+
+import heroImg from "./../../../public/images/professional-technician-installing-air-conditionin.jpg";
+import MainLayout from "@/layouts/MainLayout.astro";
+
+const subServices = [
+    {
+        title: "Aire Acondicionado Residencial",
+        description:
+            "Instalación, reparación y mantenimiento de sistemas de aire acondicionado para hogares y apartamentos.",
+        icon: Wind,
+    },
+    {
+        title: "Refrigeración Comercial",
+        description:
+            "Soluciones de refrigeración para restaurantes, supermercados, hoteles y negocios en general.",
+        icon: Snowflake,
+    },
+    {
+        title: "Mantenimiento Preventivo",
+        description:
+            "Programas de mantenimiento regular para garantizar el óptimo funcionamiento de sus equipos.",
+        icon: Settings,
+    },
+    {
+        title: "Recarga de Gas Refrigerante",
+        description:
+            "Servicio de recarga de gas refrigerante ecológico cumpliendo con todas las normativas.",
+        icon: ThermometerSnowflake,
+    },
+    {
+        title: "Reparación de Equipos",
+        description:
+            "Diagnóstico y reparación de fallas en sistemas de refrigeración y aire acondicionado.",
+        icon: Settings,
+    },
+    {
+        title: "Instalaciones Nuevas",
+        description:
+            "Asesoramiento e instalación de equipos nuevos de marcas reconocidas con garantía.",
+        icon: Wind,
+    },
+];
+
+const features = [
+    "Técnicos especializados certificados",
+    "Equipos de diagnóstico de última generación",
+    "Respuesta rápida en emergencias",
+    "Garantía en reparaciones e instalaciones",
+    "Gases refrigerantes ecológicos",
+    "Servicio postventa de calidad",
+];
+---
+
+<MainLayout>
+    <div class="min-h-screen">
+        <!-- HERO -->
+        <section
+            class="relative bg-primary text-primary-foreground py-20 md:py-32"
+        >
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <Badge
+                            className="bg-accent text-accent-foreground w-fit"
+                        >
+                            Especialistas en Climatización
+                        </Badge>
+
+                        <h1 class="text-4xl md:text-6xl font-bold text-balance">
+                            Servicios de Refrigeración
+                        </h1>
+
+                        <p
+                            class="text-lg md:text-xl text-primary-foreground/90 leading-relaxed"
+                        >
+                            Expertos en instalación, reparación y mantenimiento
+                            de sistemas de refrigeración y aire acondicionado
+                            para ambientes confortables todo el año.
+                        </p>
+
+                        <div class="flex gap-4 pt-4">
+                            <Button
+                                size="lg"
+                                className="bg-accent hover:bg-accent/90"
+                            >
+                                <a href="/#contacto">Solicitar Servicio</a>
+                            </Button>
+
+                            <Button
+                                size="lg"
+                                variant="outline"
+                                className="border-primary-foreground/20 bg-transparent hover:bg-primary-foreground/10"
+                            >
+                                <a href="/#servicios">Ver Más Servicios</a>
+                            </Button>
+                        </div>
+                    </div>
+
+                    <div
+                        class="relative h-100 md:h-125 rounded-lg overflow-hidden"
+                    >
+                        <Image
+                            src={heroImg}
+                            alt="Servicios de Refrigeración Profesional"
+                            class="object-cover w-full h-full"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SUBSERVICIOS -->
+        <section class="py-20 bg-background">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        Nuestros Servicios de Refrigeración
+                    </h2>
+                    <p class="text-lg text-muted-foreground">
+                        Soluciones completas de refrigeración y climatización
+                        para mantener sus espacios a la temperatura ideal.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {
+                        subServices.map((service) => {
+                            const Icon = service.icon;
+                            return (
+                                <Card className="group hover:shadow-lg transition-all duration-300 border-2 hover:border-accent/50">
+                                    <CardContent className="p-6">
+                                        <div class="mb-4 inline-flex p-3 rounded-lg bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                                            <Icon className="w-6 h-6" />
+                                        </div>
+
+                                        <h3 class="text-xl font-semibold mb-3">
+                                            {service.title}
+                                        </h3>
+
+                                        <p class="text-muted-foreground leading-relaxed">
+                                            {service.description}
+                                        </p>
+                                    </CardContent>
+                                </Card>
+                            );
+                        })
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="py-20 bg-secondary/30">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                            ¿Por Qué Elegir Nuestros Servicios?
+                        </h2>
+                        <p class="text-lg text-muted-foreground">
+                            Experiencia y tecnología al servicio de su confort
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        {
+                            features.map((feature) => (
+                                <div class="flex items-start gap-3 p-4 bg-card rounded-lg border hover:border-accent/50 transition-colors">
+                                    <CheckCircle2 className="w-6 h-6 text-accent mt-1 shrink-0" />
+                                    <p class="text-lg font-medium">{feature}</p>
+                                </div>
+                            ))
+                        }
+                    </div>
+
+                    <div class="text-center mt-12">
+                        <Button
+                            size="lg"
+                            className="bg-accent hover:bg-accent/90"
+                        >
+                            <a href="/#contacto">Contactar Ahora</a>
+                        </Button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</MainLayout>
