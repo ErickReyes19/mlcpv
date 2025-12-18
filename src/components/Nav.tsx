@@ -19,11 +19,10 @@ import {
 } from "@/components/ui/sheet";
 
 const services = [
-  { name: "Consultoría", href: "/servicios/consultoria" },
-  { name: "Desarrollo Web", href: "/servicios/desarrollo-web" },
-  { name: "Diseño Gráfico", href: "/servicios/diseno-grafico" },
-  { name: "Marketing Digital", href: "/servicios/marketing-digital" },
-  { name: "Soporte Técnico", href: "/servicios/soporte-tecnico" },
+  { name: "Plometia", href: "/servicios/plomeria" },
+  { name: "Refrigeración", href: "/servicios/refrigeracion" },
+  { name: "Carpintería", href: "/servicios/Carpinteria" },
+  { name: "Jardinería", href: "/servicios/Jardineria" },
 ];
 
 const navItems = [
