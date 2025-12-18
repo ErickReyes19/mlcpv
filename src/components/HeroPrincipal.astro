@@ -1,155 +1,121 @@
 ---
 import { Button } from "@/components/ui/button";
-import { Image } from "astro:assets";
 import { ArrowRight, Phone } from "lucide-react";
+import { Image } from "astro:assets";
+
+import img1 from "/images/professional-maintenance-worker-fixing-industrial-.jpg";
+import img2 from "/images/clean-modern-facility-with-well-maintained-systems.jpg";
+import img3 from "/images/maintenance-technician-inspecting-hvac-system.jpg";
 
 const images = [
-    {
-        src: "/images/professional-maintenance-worker-fixing-industrial-.jpg",
-        alt: "Professional maintenance service",
-    },
-    {
-        src: "/images/clean-modern-facility-with-well-maintained-systems.jpg",
-        alt: "Well-maintained facility",
-    },
-    {
-        src: "/images/maintenance-technician-inspecting-hvac-system.jpg",
-        alt: "Expert maintenance inspection",
-    },
+  { src: img1, alt: "Professional maintenance service" },
+  { src: img2, alt: "Well-maintained facility" },
+  { src: img3, alt: "Expert maintenance inspection" },
 ];
 ---
 
 <section class="relative min-h-screen w-full overflow-hidden bg-background">
-    <!-- Carousel Background -->
-    <div id="hero-carousel" class="absolute inset-0 z-0">
-        {
-            images.map((image, index) => (
-                <div
-                    class="absolute inset-0 transition-opacity duration-1000 opacity-0"
-                    data-slide-index={index}
-                >
-                    <div class="absolute inset-0 bg-primary/60" />
-                    <Image
-                        width={100}
-                        height={100}
-                        src={image.src}
-                        alt={image.alt}
-                        class="h-full w-full object-cover object-center"
-                    />
-                </div>
-            ))
-        }
-    </div>
+  <!-- Carousel Background -->
+  <div id="hero-carousel" class="absolute inset-0 z-0">
+    {images.map((image, index) => (
+      <div
+        class="absolute inset-0 transition-opacity duration-1000 opacity-0"
+        data-slide-index={index}
+      >
+        <div class="absolute inset-0 bg-primary/60"></div>
+        <Image
+          src={image.src}
+          alt={image.alt}
+          class="h-full w-full object-cover object-center"
+          sizes="100vw"
+          format="webp"
+        />
+      </div>
+    ))}
+  </div>
 
-    <!-- Content Overlay -->
-    <div class="relative z-10 flex min-h-screen items-center">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid gap-8 lg:grid-cols-2 lg:gap-12">
-                <div
-                    class="flex flex-col justify-center space-y-6 lg:space-y-8"
-                >
-                    <div class="space-y-4">
-                        <div
-                            class="inline-block rounded-lg bg-accent/90 px-4 py-1.5 text-sm font-medium text-accent-foreground backdrop-blur-sm"
-                        >
-                            Servicios de mantenimiento profesional
-                        </div>
-
-                        <h1
-                            class="text-balance text-4xl font-bold text-white sm:text-5xl md:text-6xl lg:text-7xl"
-                        >
-                            Excelencia en cada detalle
-                        </h1>
-
-                        <p class="text-lg text-white/90 sm:text-xl md:text-2xl">
-                            Soluciones de mantenimiento confiables que
-                            garantizan el correcto funcionamiento de sus
-                            operaciones.
-                        </p>
-                    </div>
-
-                    <div class="flex flex-col gap-4 sm:flex-row sm:gap-6">
-                        <Button
-                            size="lg"
-                            className="group bg-accent text-accent-foreground"
-                        >
-                            Más información
-                            <ArrowRight
-                                className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform"
-                            />
-                        </Button>
-
-                        <Button
-                            size="lg"
-                            variant="outline"
-                            className="border-white/30 bg-white/10 text-white backdrop-blur-sm"
-                        >
-                            <Phone className="mr-2 h-5 w-5" />
-                            Contactar
-                        </Button>
-                    </div>
-
-                    <div class="flex flex-wrap gap-3 pt-4">
-                        {
-                            [
-                                "Servicio 24/7",
-                                "Con licencia y asegurada",
-                                "Respuesta rápida",
-                            ].map((feature) => (
-                                <div class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white backdrop-blur-sm">
-                                    {feature}
-                                </div>
-                            ))
-                        }
-                    </div>
-                </div>
+  <!-- Content Overlay -->
+  <div class="relative z-10 flex min-h-screen items-center">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-8 lg:grid-cols-2 lg:gap-12">
+        <div class="flex flex-col justify-center space-y-6 lg:space-y-8">
+          <div class="space-y-4">
+            <div class="inline-block rounded-lg bg-accent/90 px-4 py-1.5 text-sm font-medium text-accent-foreground backdrop-blur-sm">
+              Servicios de mantenimiento profesional
             </div>
+
+            <h1 class="text-balance text-4xl font-bold text-white sm:text-5xl md:text-6xl lg:text-7xl">
+              Excelencia en cada detalle
+            </h1>
+
+            <p class="text-lg text-white/90 sm:text-xl md:text-2xl">
+              Soluciones de mantenimiento confiables que garantizan el correcto funcionamiento de sus operaciones.
+            </p>
+          </div>
+
+          <div class="flex flex-col gap-4 sm:flex-row sm:gap-6">
+            <Button size="lg" className="group bg-accent text-accent-foreground">
+              Más información
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+
+            <Button size="lg" variant="outline" className="border-white/30 bg-white/10 text-white backdrop-blur-sm">
+              <Phone className="mr-2 h-5 w-5" />
+              Contactar
+            </Button>
+          </div>
+
+          <div class="flex flex-wrap gap-3 pt-4">
+            {["Servicio 24/7", "Con licencia y asegurada", "Respuesta rápida"].map((feature) => (
+              <div class="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white backdrop-blur-sm">
+                {feature}
+              </div>
+            ))}
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Carousel Indicators -->
-    <div class="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 gap-2">
-        {
-            images.map((_, index) => (
-                <button
-                    class="h-2 w-2 rounded-full bg-white/40 hover:bg-white/60 transition-all"
-                    data-index={index}
-                    aria-label={`Go to slide ${index + 1}`}
-                />
-            ))
-        }
-    </div>
+  <!-- Carousel Indicators -->
+  <div class="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 gap-2">
+    {images.map((_, index) => (
+      <button
+        class="h-2 w-2 rounded-full bg-white/40 hover:bg-white/60 transition-all"
+        data-index={index}
+        aria-label={`Go to slide ${index + 1}`}
+      />
+    ))}
+  </div>
 
-    <!-- Carousel JS -->
-    <script type="module">
-        const slides = document.querySelectorAll("#hero-carousel > div");
-        const buttons = document.querySelectorAll("[data-index]");
+  <!-- Carousel JS -->
+  <script type="module">
+    const slides = document.querySelectorAll("#hero-carousel > div");
+    const buttons = document.querySelectorAll("[data-index]");
 
-        let current = 0;
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.style.opacity = i === index ? "1" : "0";
-            });
-            buttons.forEach((btn, i) => {
-                btn.style.width = i === index ? "2rem" : "0.5rem";
-                btn.classList.toggle("bg-white", i === index);
-                btn.classList.toggle("bg-white/40", i !== index);
-            });
-            current = index;
-        }
+    let current = 0;
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.style.opacity = i === index ? "1" : "0";
+      });
+      buttons.forEach((btn, i) => {
+        btn.style.width = i === index ? "2rem" : "0.5rem";
+        btn.classList.toggle("bg-white", i === index);
+        btn.classList.toggle("bg-white/40", i !== index);
+      });
+      current = index;
+    }
 
-        buttons.forEach((btn) => {
-            btn.addEventListener("click", () =>
-                showSlide(Number(btn.dataset.index)),
-            );
-        });
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => showSlide(Number(btn.dataset.index)));
+    });
 
-        // Inicia la primera imagen
-        showSlide(0);
+    // Inicia la primera imagen
+    showSlide(0);
 
-        // Cambia imagen automáticamente cada 5s
-        setInterval(() => {
-            showSlide((current + 1) % slides.length);
-        }, 5000);
-    </script>
+    // Cambia imagen automáticamente cada 5s
+    setInterval(() => {
+      showSlide((current + 1) % slides.length);
+    }, 5000);
+  </script>
 </section>
