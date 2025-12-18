@@ -1,14 +1,15 @@
 ---
-import { CTASection } from "@/components/cta-secction";
-import { MaintenanceHero } from "@/components/HeroPrincipal";
-import { WhyChooseUs } from "@/components/Por-que-elegirnos";
-import { ServicesSection } from "@/components/Services-section";
+
 import MainLayout from "@/layouts/MainLayout.astro";
+import HeroPrincipal from "@/components/HeroPrincipal.astro";
+import Services from "@/components/Services-section.astro";
+import WhyChooseUs from "@/components/Por-que-elegirnos.astro";
+import CTASection from "@/components/cta-secction.astro";
 ---
 
 <MainLayout>
-	<MaintenanceHero client:load />
-	<ServicesSection client:load />
+	<HeroPrincipal />
+	<Services />
 	<WhyChooseUs client:load />
 	<CTASection client:load />
 </MainLayout>

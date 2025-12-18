@@ -1,0 +1,77 @@
+---
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Snowflake, Zap, Droplets, Hammer, Leaf } from "lucide-react";
+
+const services = [
+  { icon: 'snowflake', title: 'Refrigeración', description: 'Instalación, mantenimiento y reparación experta de sistemas de refrigeración comerciales y residenciales. Garantizamos una eficiencia óptima de enfriamiento y ahorro de energía para sus equipos.' },
+  { icon: 'zap', title: 'Electricidad', description: 'Servicios eléctricos integrales que incluyen instalaciones, reparaciones e inspecciones de seguridad. Nuestros electricistas certificados manejan desde iluminación hasta proyectos completos de recableado.' },
+  { icon: 'droplets', title: 'Plomería', description: 'Soluciones profesionales de plomería para reparación de fugas, instalación de tuberías, limpieza de drenajes y reemplazo de accesorios. Disponibles para emergencias y mantenimiento programado.' },
+  { icon: 'hammer', title: 'Carpintería', description: 'Trabajos de carpintería especializada que van desde muebles y gabinetes a medida hasta reparaciones estructurales y remodelaciones. Aportamos calidad y atención al detalle en cada proyecto.' },
+  { icon: 'leaf', title: 'Jardinería', description: 'Servicios completos de jardinería y mantenimiento de áreas verdes que incluyen cuidado del césped, poda, sistemas de riego y siembra estacional. Ayudamos a crear y mantener espacios exteriores hermosos.' },
+];
+
+function getIcon(icon: string) {
+  if (icon === 'snowflake') return Snowflake;
+  if (icon === 'zap') return Zap;
+  if (icon === 'droplets') return Droplets;
+  if (icon === 'hammer') return Hammer;
+  if (icon === 'leaf') return Leaf;
+  return null;
+}
+
+function getIconColors(icon: string) {
+  switch (icon) {
+    case 'snowflake': return 'bg-blue-500/15 text-blue-500 group-hover:bg-blue-500 group-hover:text-white';
+    case 'zap': return 'bg-yellow-500/15 text-yellow-500 group-hover:bg-yellow-500 group-hover:text-white';
+    case 'droplets': return 'bg-cyan-500/15 text-cyan-500 group-hover:bg-cyan-500 group-hover:text-white';
+    case 'hammer': return 'bg-orange-500/15 text-orange-500 group-hover:bg-orange-500 group-hover:text-white';
+    case 'leaf': return 'bg-green-500/15 text-green-500 group-hover:bg-green-500 group-hover:text-white';
+    default: return '';
+  }
+}
+---
+
+<section class="py-16 px-4 md:py-24 lg:py-32 bg-secondary/30">
+  <div class="container mx-auto max-w-7xl">
+    <!-- Section Header -->
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 text-balance">
+        Nuestros servicios profesionales
+      </h2>
+      <p class="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto text-balance">
+        Soluciones integrales de mantenimiento brindadas por profesionales experimentados dedicados a la excelencia y la satisfacción del cliente.
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+      {services.map((service) => {
+        const Icon = getIcon(service.icon);
+        const iconColors = getIconColors(service.icon);
+        return (
+          <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-border/50 bg-card/80 backdrop-blur flex flex-col">
+            <CardHeader>
+              <div class={`mb-4 inline-flex items-center justify-center w-14 h-14 rounded-lg transition-all duration-300 group-hover:scale-110 ${iconColors}`}>
+                {Icon && <Icon className="w-7 h-7" />}
+              </div>
+              <CardTitle className="text-xl md:text-2xl text-foreground">{service.title}</CardTitle>
+            </CardHeader>
+
+            <CardContent className="flex flex-col gap-4 flex-1">
+              <CardDescription className="text-base text-muted-foreground leading-relaxed">
+                {service.description}
+              </CardDescription>
+              <Button
+                variant="outline"
+                className="mt-auto w-fit group-hover:bg-accent group-hover:text-accent-foreground transition-colors"
+              >
+                Más información
+              </Button>
+            </CardContent>
+          </Card>
+        );
+      })}
+    </div>
+  </div>
+</section>
