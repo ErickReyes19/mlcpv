@@ -1,5 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Snowflake, Zap, Droplets, Hammer, Leaf } from "lucide-react"
+import { Button } from "./ui/button"
 
 const services = [
     {
@@ -56,20 +57,31 @@ export function ServicesSection() {
                         return (
                             <Card
                                 key={index}
-                                className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-border/50 bg-card/80 backdrop-blur"
+                                className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-border/50 bg-card/80 backdrop-blur flex flex-col"
                             >
                                 <CardHeader>
                                     <div className="mb-4 inline-flex items-center justify-center w-14 h-14 rounded-lg bg-gray-400 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-300">
                                         <Icon className="w-7 h-7" />
                                     </div>
-                                    <CardTitle className="text-xl md:text-2xl text-foreground">{service.title}</CardTitle>
+                                    <CardTitle className="text-xl md:text-2xl text-foreground">
+                                        {service.title}
+                                    </CardTitle>
                                 </CardHeader>
-                                <CardContent>
+
+                                <CardContent className="flex flex-col gap-4 flex-1">
                                     <CardDescription className="text-base text-muted-foreground leading-relaxed">
                                         {service.description}
                                     </CardDescription>
+
+                                    <Button
+                                        variant="outline"
+                                        className="mt-auto w-fit group-hover:bg-accent group-hover:text-accent-foreground transition-colors"
+                                    >
+                                        Más información
+                                    </Button>
                                 </CardContent>
                             </Card>
+
                         )
                     })}
                 </div>

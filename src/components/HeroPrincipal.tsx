@@ -54,7 +54,7 @@ export function MaintenanceHero() {
                         <div className="flex flex-col justify-center space-y-6 lg:space-y-8">
                             <div className="space-y-4">
                                 <div className="inline-block rounded-lg bg-accent/90 px-4 py-1.5 text-sm font-medium text-accent-foreground backdrop-blur-sm">
-                                    Professional Maintenance Services
+                                    Servicios de mantenimiento profesional
                                 </div>
                                 <h1 className="text-balance font-sans text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
                                     Excelencia en cada detalle

@@ -1,5 +1,7 @@
 ---
+import { CTASection } from "@/components/cta-secction";
 import { MaintenanceHero } from "@/components/HeroPrincipal";
+import { WhyChooseUs } from "@/components/Por-que-elegirnos";
 import { ServicesSection } from "@/components/Services-section";
 import MainLayout from "@/layouts/MainLayout.astro";
 ---
@@ -7,4 +9,6 @@ import MainLayout from "@/layouts/MainLayout.astro";
 <MainLayout>
 	<MaintenanceHero client:load />
 	<ServicesSection client:load />
+	<WhyChooseUs client:load />
+	<CTASection client:load />
 </MainLayout>
