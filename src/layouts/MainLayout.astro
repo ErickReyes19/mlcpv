@@ -1,0 +1,20 @@
+---
+import { ClientRouter } from "astro:transitions";
+import "../styles/global.css";
+import { Navbar } from "@/components/Nav";
+const currentPath = Astro.url.pathname;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>Prueba</title>
+		<ClientRouter />
+	</head>
+	<body>
+		<Navbar page={currentPath} client:load  />
+		<slot />
+	</body>
+</html>

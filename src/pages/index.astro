@@ -1,0 +1,10 @@
+---
+import { MaintenanceHero } from "@/components/HeroPrincipal";
+import { ServicesSection } from "@/components/Services-section";
+import MainLayout from "@/layouts/MainLayout.astro";
+---
+
+<MainLayout>
+	<MaintenanceHero client:load />
+	<ServicesSection client:load />
+</MainLayout>
