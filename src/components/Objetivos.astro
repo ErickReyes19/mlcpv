@@ -1,0 +1,121 @@
+---
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+    Target,
+    Users,
+    TrendingUp,
+    Award,
+    Shield,
+    Lightbulb,
+} from "lucide-react";
+
+const objectives = [
+    {
+        icon: Target,
+        title: "Excelencia en el Servicio",
+        description:
+            "Mantener los más altos estándares de calidad en cada servicio que brindamos, superando las expectativas de nuestros clientes.",
+    },
+    {
+        icon: Users,
+        title: "Satisfacción del Cliente",
+        description:
+            "Garantizar que cada cliente reciba un servicio personalizado, profesional y que resuelva completamente sus necesidades de mantenimiento.",
+    },
+    {
+        icon: TrendingUp,
+        title: "Crecimiento Sostenible",
+        description:
+            "Expandir nuestros servicios de manera estratégica y sostenible, alcanzando nuevos mercados mientras mantenemos nuestra calidad.",
+    },
+    {
+        icon: Award,
+        title: "Equipo Profesional",
+        description:
+            "Desarrollar y mantener un equipo altamente capacitado y motivado, con formación continua en las últimas técnicas y tecnologías.",
+    },
+    {
+        icon: Shield,
+        title: "Seguridad y Confiabilidad",
+        description:
+            "Implementar protocolos de seguridad rigurosos en cada proyecto, garantizando la protección de nuestros clientes y equipo.",
+    },
+    {
+        icon: Lightbulb,
+        title: "Innovación Constante",
+        description:
+            "Adoptar nuevas tecnologías y metodologías que mejoren la eficiencia y efectividad de nuestros servicios de mantenimiento.",
+    },
+];
+---
+
+<section class="py-20 px-4 md:px-6 lg:px-8 bg-secondary/30">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <div
+                class="inline-block px-4 py-1.5 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4"
+            >
+                Nuestros Objetivos
+            </div>
+            <h2
+                class="text-4xl md:text-5xl font-bold text-foreground mb-6 text-balance"
+            >
+                Comprometidos con la Excelencia
+            </h2>
+            <p
+                class="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+            >
+                Estos son los pilares fundamentales que guían nuestro trabajo
+                diario y nos impulsan a ser mejores cada día
+            </p>
+        </div>
+
+        <section class="py-20 px-4 md:px-6 lg:px-8 bg-secondary/30">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <div
+                        class="inline-block px-4 py-1.5 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4"
+                    >
+                        Nuestros Objetivos
+                    </div>
+                    <h2
+                        class="text-4xl md:text-5xl font-bold text-foreground mb-6 text-balance"
+                    >
+                        Comprometidos con la Excelencia
+                    </h2>
+                    <p
+                        class="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+                    >
+                        Estos son los pilares fundamentales que guían nuestro
+                        trabajo diario y nos impulsan a ser mejores cada día
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {
+                        objectives.map((objective) => {
+                            const Icon = objective.icon;
+                            return (
+                                <Card className="border-accent/10 hover:border-accent/30 transition-colors duration-300">
+                                    <CardHeader>
+                                        <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+                                            <Icon className="w-6 h-6 text-primary-500" />
+                                        </div>
+                                        <CardTitle className="text-xl font-semibold text-foreground">
+                                            {objective.title}
+                                        </CardTitle>
+                                    </CardHeader>
+                                    <CardContent>
+                                        <p class="text-muted-foreground leading-relaxed">
+                                            {objective.description}
+                                        </p>
+                                    </CardContent>
+                                </Card>
+                            );
+                        })
+                    }
+                </div>
+            </div>
+        </section>
+    </div>
+</section>

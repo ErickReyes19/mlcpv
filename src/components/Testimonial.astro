@@ -1,0 +1,141 @@
+---
+import { Card, CardContent } from "@/components/ui/card";
+import { Star } from "lucide-react";
+import { Image } from "astro:assets";
+
+// Importa las imágenes para que Astro las optimice
+import maria from "./../../public/images/professional-hispanic-woman-smiling.jpg";
+import carlos from "./../../public/images/hispanic-businessman.png";
+import ana from "./../../public/images/professional-hispanic-woman-with-glasses-smiling.jpg";
+import roberto from "./../../public/images/professional-hispanic-man-with-beard-confident.jpg";
+import laura from "./../../public/images/professional-hispanic-woman-entrepreneur-smiling.jpg";
+import jorge from "./../../public/images/professional-hispanic-man-in-suit-confident.jpg";
+import StarRating from "./ranking";
+
+const testimonials = [
+    {
+        name: "María González",
+        role: "Gerente de Operaciones",
+        company: "Empresa Comercial del Sur",
+        avatar: maria,
+        initials: "MG",
+        rating: 5,
+        comment:
+            "Excelente servicio de mantenimiento. El equipo es profesional, puntual y siempre deja todo impecable. Hemos trabajado con ellos durante 2 años y nunca nos han decepcionado.",
+    },
+    {
+        name: "Carlos Hernández",
+        role: "Propietario",
+        company: "Hotel Plaza Central",
+        avatar: carlos,
+        initials: "CH",
+        rating: 5,
+        comment:
+            "La mejor decisión fue contratar sus servicios. Resolvieron todos nuestros problemas de refrigeración y electricidad de manera rápida y eficiente. Altamente recomendados.",
+    },
+    {
+        name: "Ana Martínez",
+        role: "Administradora",
+        company: "Complejo Residencial Los Pinos",
+        avatar: ana,
+        initials: "AM",
+        rating: 4,
+        comment:
+            "Profesionalismo de primera. Atienden nuestras emergencias con rapidez y sus precios son justos. El servicio de plomería y carpintería ha sido excepcional.",
+    },
+    {
+        name: "Roberto Díaz",
+        role: "Director de Mantenimiento",
+        company: "Centro Comercial Metropolitano",
+        avatar: roberto,
+        initials: "RD",
+        rating: 4,
+        comment:
+            "Trabajar con este equipo ha sido una experiencia increíble. Son confiables, eficientes y siempre buscan la mejor solución. Definitivamente los recomiendo.",
+    },
+    {
+        name: "Laura Reyes",
+        role: "Propietaria",
+        company: "Restaurante El Buen Sabor",
+        avatar: laura,
+        initials: "LR",
+        rating: 3,
+        comment:
+            "Su servicio de mantenimiento de refrigeración ha sido crucial para nuestro negocio. Siempre disponibles y con soluciones efectivas. Excelente calidad-precio.",
+    },
+    {
+        name: "Jorge Medina",
+        role: "Gerente General",
+        company: "Industrias del Pacífico",
+        avatar: jorge,
+        initials: "JM",
+        rating: 5,
+        comment:
+            "Superaron nuestras expectativas en todos los aspectos. Equipo profesional, trabajo de calidad y excelente atención al cliente. Los seguiremos contratando sin duda.",
+    },
+];
+---
+
+<section class="py-20 px-4 md:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <div
+                class="inline-block px-4 py-1.5 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4"
+            >
+                Testimonios
+            </div>
+            <h2
+                class="text-4xl md:text-5xl font-bold text-foreground mb-6 text-balance"
+            >
+                Lo Que Dicen Nuestros Clientes
+            </h2>
+            <p
+                class="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+            >
+                La satisfacción de nuestros clientes es nuestra mejor carta de
+                presentación.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {
+                testimonials.map((testimonial) => (
+                    <Card className="border-accent/10 hover:shadow-lg transition-shadow duration-300">
+                        <CardContent className="p-6">
+                            {/* ISLA REACT: Ranking de estrellas */}
+                            <StarRating
+                                client:load
+                                rating={testimonial.rating}
+                            />
+
+                            <p class="text-muted-foreground leading-relaxed mb-6 italic">
+                                "{testimonial.comment}"
+                            </p>
+
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full overflow-hidden bg-accent/10 flex items-center justify-center">
+                                    <Image
+                                        src={testimonial.avatar}
+                                        alt={testimonial.name}
+                                        class="object-cover w-full h-full"
+                                    />
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-foreground">
+                                        {testimonial.name}
+                                    </p>
+                                    <p class="text-sm text-muted-foreground">
+                                        {testimonial.role}
+                                    </p>
+                                    <p class="text-sm text-muted-foreground">
+                                        {testimonial.company}
+                                    </p>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                ))
+            }
+        </div>
+    </div>
+</section>

@@ -1,25 +1,26 @@
 ---
-import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
-import { Navbar } from "@/components/Nav";
+import Navbar from "@/components/Nav"; // si usaste export default
 import Footer from "@/components/footer.astro";
 const currentPath = Astro.url.pathname;
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>Prueba</title>
-		<ClientRouter />
-		<meta name="description" content="Mantenimiento lo hacemos por ti - Servicios de mantenimiento profesional y confiables para garantizar el correcto funcionamiento de sus operaciones." />
-		<meta name="keywords" content="mantenimiento, servicios de mantenimiento, mantenimiento profesional, mantenimiento confiable, mantenimiento de instalaciones, mantenimiento industrial, mantenimiento residencial" />
-		<meta name="author" content="Mantenimiento lo hacemos por ti" />
-	</head>
-	<body>
-		<Navbar page={currentPath} client:load  />
-		<slot />
-		<Footer/>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Prueba</title>
+    <meta name="description" content="Mantenimiento lo hacemos por ti..." />
+    <meta name="keywords" content="mantenimiento, servicios, ..." />
+    <meta name="author" content="Mantenimiento lo hacemos por ti" />
+  </head>
+  <body>
+    <!-- HIDRATACIÓN: al ser componente React (use client) hay que hidratarlo -->
+    <Navbar page={currentPath} client:visible />
+
+    <slot />
+
+    <Footer />
+  </body>
 </html>
